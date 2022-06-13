@@ -58,7 +58,6 @@ EXPOSE $EXPOSE_PORT
 WORKDIR /srv
 
 COPY wrapper.sh ./
-#COPY ovpn.conf ./
 
 CMD ["/srv/saml-wrapper"]
 
