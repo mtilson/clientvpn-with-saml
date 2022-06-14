@@ -57,7 +57,7 @@ printf "%s\n%s\n" "N/A" "CRV1::${VPN_SID}::$(cat ${RESP_FILE})" > ${RESP_FILE}.c
 chmod 600 ${RESP_FILE}.cred
 
 echo "Running OpenVPN"
-openvpn --config "${OVPN_CONF}-${SRV}" --inactive 3600 \
-  --proto "$PROTO" --remote "${SRV}" "${PORT}" \
+sh -c "openvpn --config ${OVPN_CONF}-${SRV} --inactive 3600 \
+  --proto $PROTO --remote ${SRV} ${PORT} \
   --script-security 2 --route-up '/usr/bin/env rm -f ${RESP_FILE} ${RESP_FILE}.cred' \
-  --auth-user-pass ${RESP_FILE}.cred
+  --auth-user-pass ${RESP_FILE}.cred"
