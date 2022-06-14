@@ -15,7 +15,7 @@ wait_file() {
 }
 
 OVPN_CONF=${OVPN_CONF:-./ovpn.conf}
-RESP_FILE=${RESP_FILE:-./saml-response.txt}
+RESP_FILE=${RESP_FILE:-./resp.txt}
 
 HOST=$(cat ${OVPN_CONF} | grep ^remote | head -n1 | cut -d" " -f2)
 PORT=$(cat ${OVPN_CONF} | grep ^remote | head -n1 | cut -d" " -f3)

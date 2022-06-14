@@ -43,8 +43,11 @@ RUN \
 FROM alpine:latest
 ARG EXPOSE_PORT=35001
 
-ARG OVPN_CONF=/srv/ovpn.conf
+ARG OVPN_CONF=./ovpn.conf
 ENV OVPN_CONF=$OVPN_CONF
+
+ARG RESP_FILE=./resp.txt
+ENV RESP_FILE=$RESP_FILE
 
 RUN \
     apk add --no-cache --update bash tzdata curl ca-certificates openssl bind-tools && \
