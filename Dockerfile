@@ -48,6 +48,7 @@ ENV OVPN_CONF=$OVPN_CONF
 
 RUN \
     apk add --no-cache --update tzdata curl ca-certificates openssl bind-tools && \
+    echo "alias la='ls -la'" >> ~/.bashrc && \
     rm -rf /var/cache/apk/*
 
 COPY --from=build-ovpn /usr/local/sbin/openvpn /usr/local/sbin/openvpn
