@@ -48,7 +48,8 @@ echo "==="
 rm -f ${RESP_FILE} ${RESP_FILE}.cred
 
 echo "Opening browser and wait for the response file..."
-wait_file ${RESP_FILE} 300 || {
+wait_file ${RESP_FILE} 300
+test -f ${RESP_FILE} || {
   echo "SAML Authentication time out"
   exit 1
 }
