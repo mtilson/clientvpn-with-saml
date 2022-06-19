@@ -7,15 +7,19 @@
 ### About ###
 
 * It is [Docker image](https://hub.docker.com/r/mtilson/clientvpn-with-saml/) of [OpenVPN client](https://openvpn.net) with auxiliary services build to be able to connect to [AWS Client VPN](https://aws.amazon.com/vpn/client-vpn/) using SAML 2.0 protocol for authentication and authorization
-* Configuration file for *Client VPN endpoint* and *username/password* for SSO authentication are provided to the container as command line parameters (or as environment variables) to pass SAML authentication and authorization in unattended way
+* `Configuration file` for **AWS Client VPN endpoint** and `username/password` for SSO authentication are provided to the container as command line parameters (or as environment variables) to pass SAML authentication and authorization in unattended way
 
 ### Usage ###
 
 ``` bash
-user@runner:~/.tmp/openvpn/docker$ docker run \
+user@docker$ export SAML_USER="user01"
+user@docker$ export SAML_PASS="pass01"
+user@docker$ docker run \
   -d \
   --rm \
   -p 35001:35001 \
+  -e SAML_USER=$SAML_USER \
+  -e SAML_PASS=$SAML_PASS \
   -e OVPN_CONF=/srv/aws-client-vpn.ovpn \
   -v"$(pwd)/aws-client-vpn.ovpn":"/srv/aws-client-vpn.ovpn" \
   --cap-add=NET_ADMIN \
@@ -28,7 +32,7 @@ user@runner:~/.tmp/openvpn/docker$ docker run \
 
 ``` bash
 ### session 1
-user@runner:~/.tmp/openvpn/docker$ docker exec -ti  ovpn-saml bash
+user@docker$ docker exec -ti  ovpn-saml bash
 
 bash-5.1# ip r sh
 default via 172.17.0.1 dev eth0
@@ -116,7 +120,7 @@ Running OpenVPN
 
 ``` bash
 ### session 2
-user@runner:~/.tmp/openvpn/docker$ docker exec -ti  ovpn-saml bash
+user@docker$ docker exec -ti  ovpn-saml bash
 
 /srv # ip r sh
 default via 172.17.0.1 dev eth0
