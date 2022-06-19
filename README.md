@@ -7,7 +7,7 @@
 ### About ###
 
 * It is [Docker image](https://hub.docker.com/r/mtilson/clientvpn-with-saml/) of [OpenVPN client](https://openvpn.net) with auxiliary services build to be able to connect to [AWS Client VPN](https://aws.amazon.com/vpn/client-vpn/) using SAML 2.0 protocol for authentication and authorization
-* `Configuration file` for **AWS Client VPN endpoint** and `username/password` for SSO authentication are provided to the container as command line parameters (or as environment variables) to pass SAML authentication and authorization in unattended way
+* `Configuration file` for **AWS Client VPN endpoint** and `username/password` for SAML flow (SP/IdP authentication) are provided to the container as command line parameters (or as environment variables) to establish VPN connection in unattended way
 
 ### Usage ###
 
