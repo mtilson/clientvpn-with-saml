@@ -1,15 +1,12 @@
-# OpenVPN Client to authenticate with SAML 2.0 to AWS Client VPN
+## OpenVPN Client to authenticate with SAML 2.0 to AWS Client VPN
 
-## Note ##
+* **Note**
+  * The idea is based on [samm-git/aws-vpn-client](https://github.com/samm-git/aws-vpn-client)
+* About 
+  * It is [Docker image](https://hub.docker.com/r/mtilson/clientvpn-with-saml/) of [OpenVPN client](https://openvpn.net) with auxiliary services build to be able to connect to [AWS Client VPN](https://aws.amazon.com/vpn/client-vpn/) using SAML 2.0 protocol for authentication and authorization
+  * Configuration file for *Client VPN endpoint* and *username/password* for SSO authentication are provided to the container as command line parameters (or as environment variables) to pass SAML authentication and authorization in unattended way
 
-* The idea is based on [samm-git/aws-vpn-client](https://github.com/samm-git/aws-vpn-client)
-
-## About ##
-
-* It is [Docker image](https://hub.docker.com/r/mtilson/clientvpn-with-saml/) of [OpenVPN client](https://openvpn.net) with auxiliary services build to be able to connect to [AWS Client VPN](https://aws.amazon.com/vpn/client-vpn/) using SAML 2.0 protocol for authentication and authorization
-* Configuration file for *Client VPN endpoint* and *username/password* for SSO authentication are provided to the container as command line parameters (or as environment variables) to pass SAML authentication and authorization in unattended way
-
-## Usage ##
+### Usage ###
 
 ``` bash
 user@runner:~/.tmp/openvpn/docker$ docker run \
@@ -24,7 +21,7 @@ user@runner:~/.tmp/openvpn/docker$ docker run \
   mtilson/clientvpn-with-saml
 ```
 
-## Debugging ##
+### Debugging ###
 
 ``` bash
 ### session 1
