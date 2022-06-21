@@ -27,6 +27,10 @@ sed \
     -e '/^proto .*/d' \
     -e '/^remote .*/d' \
     -e '/^remote-random-hostname.*/d' \
+    -e '/^resolv-retry infinite.*/d' \
+    -e '/^auth-user-pass.*/d' \
+    -e '/^auth-federate.*/d' \
+    -e '/^auth-retry interact.*/d' \
     -e '/^nobind.*/a persist-key\npersist-tun' \
     ${OVPN_CONF} > ${OVPN_CONF}-${SRV}
 
