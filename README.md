@@ -1,4 +1,8 @@
-# DEPRECATED
+![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
+## DEPRECATED
+
+This is no longer supported, please consider using [tilson-biz/docker-aws-clientvpn](https://github.com/tilson-biz/docker-aws-clientvpn) instead
 
 ## OpenVPN Client to authenticate with SAML 2.0 to AWS Client VPN
 
