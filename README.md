@@ -1,3 +1,5 @@
+# DEPRECATED
+
 ## OpenVPN Client to authenticate with SAML 2.0 to AWS Client VPN
 
 ### Note ###
